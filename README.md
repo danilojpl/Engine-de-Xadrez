@@ -1,6 +1,4 @@
 # Engine-de-Xadrez
----
-
 ### Installing depences
 If you need to install some dependences of the project, you need to run the following command at the root folder:
 ```shell
