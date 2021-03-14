@@ -1,8 +1,13 @@
 import chess
 
-NullPiece = {
-  'piece_type': 0
-}
+class NullPiece(chess.Piece):
+  def __init__(self):
+    self.piece_type = 0
+    self.symbol = '.'
+    self.color = False
+
+  def __str__(self):
+    return self.symbol
 
 class Game:
   def __init__(self):
@@ -20,9 +25,9 @@ class Game:
       piece = self.board.piece_at(square)
 
       if piece:
-        row_array.append(piece.piece_type)
+        row_array.append(piece)
       else:
-        row_array.append(NullPiece['piece_type'])
+        row_array.append(NullPiece())
 
       if square % 8 == 7:
         board_array.append(row_array)

@@ -1,4 +1,4 @@
 clear
 echo '\n🚀 iniciando a aplicação ...'
 
-python ./src/main.py
+python3 ./src/main.py

@@ -22,11 +22,11 @@ HEURISTICS = {
 
 # Peso das peças
 PIECES_WEIGHTS = {
-  NullPiece['piece_type']: 0,
+  NullPiece().piece_type: 0,
   chess.PAWN: 1,
   chess.KNIGHT: 3,
   chess.BISHOP: 3,
-  chess.ROOK: 3,
+  chess.ROOK: 5,
   chess.QUEEN: 9,
   chess.KING: 10
 }

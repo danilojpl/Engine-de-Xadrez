@@ -1,4 +1,4 @@
 clear
 echo '📦 instalando as dependências ...'
 
-pip install chess
+pip3 install chess
