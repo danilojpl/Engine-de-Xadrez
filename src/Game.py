@@ -1,10 +1,11 @@
 import chess
+from __config import NULL_PIECE
 
 class NullPiece(chess.Piece):
   def __init__(self):
-    self.piece_type = 0
-    self.symbol = '.'
-    self.color = False
+    self.piece_type = NULL_PIECE['piece_type']
+    self.symbol = NULL_PIECE['symbol']
+    self.color = NULL_PIECE['color']
 
   def __str__(self):
     return self.symbol

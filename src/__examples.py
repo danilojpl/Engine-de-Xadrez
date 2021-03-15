@@ -1,8 +1,10 @@
 import chess
 
+from left_pieces_heuristic import left_pieces_heuristic
+from controled_squares_heuristic import controled_squares_heuristic
+
 from Game import Game
 from __config import TREE_MAX_DEPT, SQUARES_WEIGHTS, HEURISTICS, PIECES_WEIGHTS
-from heuristics import left_pieces
 
 # INICIAR UM TABULEIRO:
 game = Game()
@@ -34,5 +36,9 @@ points = PIECES_WEIGHTS[piece.piece_type]
 print(f"Pontos dessa peça: {points}")
 
 # CALCULAR UTILIDADE DO TABULEIRO CONSIDERANDO A QUANTIDADE DE PEÇAS DE UMA COR
-left_pieces_utility = left_pieces(array, chess.WHITE)
+left_pieces_utility = left_pieces_heuristic(array, chess.WHITE)
 print(f"\nPontos da heurística de peças restantes para o jogador BRANCO = {left_pieces_utility}")
+
+# CALCULAR UTILIDADE DO TABULEIRO CONSIDERANDO AS CASAS CONTROLADAS
+controled_squares_utility = controled_squares_heuristic(array, chess.WHITE)
+print(f"Pontos da heurística de casas controladas para o jogador BRANCO = {controled_squares_utility}")
