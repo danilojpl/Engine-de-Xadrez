@@ -1,4 +1,5 @@
 import chess
+import random
 
 class NullPiece(chess.Piece):
   def __init__(self):
@@ -45,3 +46,37 @@ class Game:
   def draw_board(self):
     print('\n')
     print(self.board)
+  
+  def startGame(self):
+    coin = ['heads', 'tails']
+    coinSide = random.choice(coin)
+
+    if coinSide == 'heads':
+        print("\n")
+        print("human starts")
+        self.humanMove()
+
+    else:
+        print("\n")
+        print("bot starts")
+        self.botMove() 
+  
+  def humanMove(self): 
+    print(self.board.legal_moves)
+    moves = self.get_next_moves()
+    index = int(input("Make your move: "))
+    print("your move: ", moves[index])
+    
+    # if move in moves:
+    self.make_move(moves[index])
+    self.draw_board()
+    self.botMove()
+  
+  def botMove(self): 
+    moves = self.get_next_moves()
+    self.make_move(moves[0])
+    print("\n")
+    print("Bot move: ", moves[0])
+    self.draw_board()
+    self.humanMove()
+  
