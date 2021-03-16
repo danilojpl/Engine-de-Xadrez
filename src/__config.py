@@ -1,5 +1,11 @@
 import chess
-from Game import NullPiece
+
+# Peça nula
+NULL_PIECE = {
+  "piece_type": 0,
+  "symbol": '.',
+  "color": False
+}
 
 # Tamanho máximo da árvore
 TREE_MAX_DEPT = 6
@@ -7,8 +13,8 @@ TREE_MAX_DEPT = 6
 # Peso das casas
 SQUARES_WEIGHTS = {
   "border": 1,
-  "middle": 1,
-  "center": 1
+  "middle": 2,
+  "center": 3
 }
 
 # Peso das heurísticas
@@ -22,7 +28,7 @@ HEURISTICS = {
 
 # Peso das peças
 PIECES_WEIGHTS = {
-  NullPiece().piece_type: 0,
+  NULL_PIECE['piece_type']: 0,
   chess.PAWN: 1,
   chess.KNIGHT: 3,
   chess.BISHOP: 3,
