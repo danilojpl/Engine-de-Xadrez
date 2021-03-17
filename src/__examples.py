@@ -3,6 +3,7 @@ import chess
 from left_pieces_heuristic import left_pieces_heuristic
 from controled_squares_heuristic import controled_squares_heuristic
 from minimax import the_best_move
+from pieces_to_capture_heuristic import pieces_to_capture_heuristic
 
 from Game import Game
 from __config import TREE_MAX_DEPT, SQUARES_WEIGHTS, HEURISTICS, PIECES_WEIGHTS
@@ -18,7 +19,11 @@ print('Tabuleiro:')
 game.draw_board()
 
 # REALIZAR UM MOVIMENTO:
-game.make_move(moves[0])
+game.make_move(game.get_next_moves()[0])
+game.make_move(game.get_next_moves()[0])
+game.make_move(game.get_next_moves()[0])
+game.make_move(game.get_next_moves()[0])
+game.make_move(game.get_next_moves()[0])
 
 # ACESSAR A REPRESENTAÇÃO EM ARRAY DE 2 DIMENSÕES DO TABULEIRO:
 array = game.board_array
@@ -50,3 +55,6 @@ while True:
   computer = the_best_move(game)
   print(f"Jogada do Computador é {computer}")
 
+# CALCULAR UTILIDADE DO TABULEIRO CONSIDERANDO AS PEÇAS DESPROTEGIDAS
+controled_squares_utility = pieces_to_capture_heuristic(array, chess.WHITE)
+print(f"Pontos da heurística de casas controladas para o jogador BRANCO = {controled_squares_utility}")
