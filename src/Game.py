@@ -1,5 +1,6 @@
 import chess
 from __config import NULL_PIECE
+from controled_squares_heuristic import controled_squares_heuristic
 
 class NullPiece(chess.Piece):
   def __init__(self):
@@ -46,3 +47,11 @@ class Game:
   def draw_board(self):
     print('\n')
     print(self.board)
+  
+  def calc_utility (self, player_color):
+    board_array = self.board_array
+    return controled_squares_heuristic(board_array, player_color)
+
+
+
+
