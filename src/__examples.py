@@ -2,6 +2,7 @@ import chess
 
 from left_pieces_heuristic import left_pieces_heuristic
 from controled_squares_heuristic import controled_squares_heuristic
+from unprotected_pieces_heuristic import unprotected_pieces_heuristic
 
 from Game import Game
 from __config import TREE_MAX_DEPT, SQUARES_WEIGHTS, HEURISTICS, PIECES_WEIGHTS
@@ -17,7 +18,11 @@ print('Tabuleiro:')
 game.draw_board()
 
 # REALIZAR UM MOVIMENTO:
-game.make_move(moves[0])
+game.make_move(game.get_next_moves()[0])
+game.make_move(game.get_next_moves()[0])
+game.make_move(game.get_next_moves()[0])
+game.make_move(game.get_next_moves()[0])
+game.make_move(game.get_next_moves()[0])
 
 # ACESSAR A REPRESENTAÇÃO EM ARRAY DE 2 DIMENSÕES DO TABULEIRO:
 array = game.board_array
@@ -41,4 +46,8 @@ print(f"\nPontos da heurística de peças restantes para o jogador BRANCO = {lef
 
 # CALCULAR UTILIDADE DO TABULEIRO CONSIDERANDO AS CASAS CONTROLADAS
 controled_squares_utility = controled_squares_heuristic(array, chess.WHITE)
+print(f"Pontos da heurística de casas controladas para o jogador BRANCO = {controled_squares_utility}")
+
+# CALCULAR UTILIDADE DO TABULEIRO CONSIDERANDO AS PEÇAS DESPROTEGIDAS
+controled_squares_utility = unprotected_pieces_heuristic(array, chess.WHITE)
 print(f"Pontos da heurística de casas controladas para o jogador BRANCO = {controled_squares_utility}")
