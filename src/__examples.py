@@ -2,7 +2,7 @@ import chess
 
 from left_pieces_heuristic import left_pieces_heuristic
 from controled_squares_heuristic import controled_squares_heuristic
-from unprotected_pieces_heuristic import unprotected_pieces_heuristic
+from pieces_to_capture_heuristic import pieces_to_capture_heuristic
 
 from Game import Game
 from __config import TREE_MAX_DEPT, SQUARES_WEIGHTS, HEURISTICS, PIECES_WEIGHTS
@@ -49,5 +49,5 @@ controled_squares_utility = controled_squares_heuristic(array, chess.WHITE)
 print(f"Pontos da heurística de casas controladas para o jogador BRANCO = {controled_squares_utility}")
 
 # CALCULAR UTILIDADE DO TABULEIRO CONSIDERANDO AS PEÇAS DESPROTEGIDAS
-controled_squares_utility = unprotected_pieces_heuristic(array, chess.WHITE)
+controled_squares_utility = pieces_to_capture_heuristic(array, chess.WHITE)
 print(f"Pontos da heurística de casas controladas para o jogador BRANCO = {controled_squares_utility}")

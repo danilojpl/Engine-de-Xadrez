@@ -98,7 +98,7 @@ def pieces_king_can_capture (board_array, king_square_r, king_square_c, player_c
 
   return pieces_points
 
-def unprotected_pieces_heuristic (board_array, player_color):
+def pieces_to_capture_heuristic (board_array, player_color):
   points = 0
 
   for row, pieces_row in enumerate(board_array):
@@ -117,4 +117,4 @@ def unprotected_pieces_heuristic (board_array, player_color):
         if piece.piece_type == chess.KING:
           points += pieces_king_can_capture(board_array, row, col, player_color)
           
-  return (points * HEURISTICS['unprotected_pieces'])
+  return (points * HEURISTICS['pieces_to_capture'])
