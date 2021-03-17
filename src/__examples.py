@@ -2,6 +2,7 @@ import chess
 
 from left_pieces_heuristic import left_pieces_heuristic
 from controled_squares_heuristic import controled_squares_heuristic
+from minimax import the_best_move
 
 from Game import Game
 from __config import TREE_MAX_DEPT, SQUARES_WEIGHTS, HEURISTICS, PIECES_WEIGHTS
@@ -42,3 +43,10 @@ print(f"\nPontos da heurística de peças restantes para o jogador BRANCO = {lef
 # CALCULAR UTILIDADE DO TABULEIRO CONSIDERANDO AS CASAS CONTROLADAS
 controled_squares_utility = controled_squares_heuristic(array, chess.WHITE)
 print(f"Pontos da heurística de casas controladas para o jogador BRANCO = {controled_squares_utility}")
+
+#loop de evento, passando a instancia da classe Game -- DANDO ERRO --
+while True:
+  game = Game()
+  computer = the_best_move(game)
+  print(f"Jogada do Computador é {computer}")
+

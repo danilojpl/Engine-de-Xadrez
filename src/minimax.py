@@ -30,8 +30,8 @@ def minimax_alfabeta(move,turnMax, depth = 6, alfa = float("-inf"), beta = float
 def the_best_move (game,depth = 6):
     best_value = float("-inf")
     best_move = -1
-    for nextMove in game.get_next_moves():
-        utility = minimax_alfabeta(game.make_move(nextMove), False, depth)
+    for nextMove in game.get_next_moves(): #não reconhece o método
+        utility = minimax_alfabeta(game.make_move(nextMove), False, depth) 
         if utility > best_value:
             best_value = utility
             best_move = nextMove
