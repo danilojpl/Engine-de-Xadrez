@@ -6,5 +6,4 @@ from Game import Game
 game = Game()
 
 # print("teste gameplay")
-game.draw_board()
-game.startGame()
+game.start_game()
