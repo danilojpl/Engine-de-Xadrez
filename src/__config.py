@@ -20,7 +20,7 @@ SQUARES_WEIGHTS = {
 # Peso das heurísticas
 HEURISTICS = {
   "left_pieces": 1,
-  "unprotected_pieces": 1,
+  "pieces_to_capture": 1,
   "check_mate": 1,
   "square_control": 1,
   "draw": 1

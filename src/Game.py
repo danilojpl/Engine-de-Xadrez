@@ -1,6 +1,7 @@
 import chess
 import random
 from __config import NULL_PIECE
+from controled_squares_heuristic import controled_squares_heuristic
 
 class NullPiece(chess.Piece):
   def __init__(self):
@@ -50,6 +51,9 @@ class Game:
     print('\n')
     print(self.board)
   
+  def calc_utility (self, player_color):
+    board_array = self.board_array
+    return controled_squares_heuristic(board_array, player_color)
 
   #Daqui pra baixo é so gameplay
   def start_game(self):
@@ -165,14 +169,10 @@ class Game:
     else:
       print("A partida continua!")
       return False
-  
+
   def verify_check(self):
     if self.board.is_check():
       if self.board.turn == False:
         print("Lado preto está em check!")
       elif self.board.turn == True:
         print("Lado branco está em check!")
-
-      
-
-  
