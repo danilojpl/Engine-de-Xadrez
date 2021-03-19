@@ -8,7 +8,7 @@ NULL_PIECE = {
 }
 
 # Tamanho máximo da árvore
-TREE_MAX_DEPT = 6
+TREE_MAX_DEPT = 2
 
 # Peso das casas
 SQUARES_WEIGHTS = {

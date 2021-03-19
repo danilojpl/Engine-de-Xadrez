@@ -1,9 +1,9 @@
 import chess
 from Game import Game
+from __config import TREE_MAX_DEPT
 
 
-i = 0
-def minimax_alfabeta(game,turnMax,player_color, depth = 3, alfa = -9999, beta = 9999):
+def minimax_alfabeta(game,turnMax,player_color, depth, alfa = -9999, beta = 9999):
     if depth == 0:
         return game.calc_utility(player_color)
 
@@ -25,10 +25,20 @@ def minimax_alfabeta(game,turnMax,player_color, depth = 3, alfa = -9999, beta = 
     
 
 
-def the_best_move (game,depth = 3):
+def the_best_move (game,depth):
     best_value = float("-inf")
     best_move = -1	
-    for nextMove in game.get_next_moves(): 
+    moves = game.get_next_moves()
+    qnt = 0
+
+    for row in game.board_array:
+        for piece in row:
+            if game.board.turn == piece.color:
+                qnt += 1
+    if qnt < 10:
+        depth = 3
+
+    for nextMove in moves: 
         utility = minimax_alfabeta(game.make_move(nextMove),False, game.board.turn, depth) 
         if utility > best_value:
             best_value = utility

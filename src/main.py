@@ -7,7 +7,7 @@ from minimax import the_best_move
 game = Game()
 while True:
   game = game.human_move()
-  computer = the_best_move(game)
+  computer = the_best_move(game,TREE_MAX_DEPT)
   print(f"Jogada do Computador é {computer}")
   game = game.make_move(computer)
   game.draw_board()
