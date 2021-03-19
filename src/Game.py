@@ -1,10 +1,13 @@
+import copy
 import chess
 import random
+
 from __config import NULL_PIECE
-import copy
+
 from left_pieces_heuristic import left_pieces_heuristic
 from controled_squares_heuristic import controled_squares_heuristic
 from pieces_to_capture_heuristic import pieces_to_capture_heuristic
+from checkmate_heuristic import checkmate_heuristic
 
 class NullPiece(chess.Piece):
   def __init__(self):
@@ -62,7 +65,16 @@ class Game:
   
   def calc_utility (self, player_color):
     board_array = self.board_array
-    return controled_squares_heuristic(board_array, player_color)+pieces_to_capture_heuristic(board_array,player_color)+left_pieces_heuristic(board_array,player_color)-(controled_squares_heuristic(board_array, not player_color)+pieces_to_capture_heuristic(board_array,not player_color)+left_pieces_heuristic(board_array,not player_color))
+    return (
+         controled_squares_heuristic(board_array, player_color)
+        +pieces_to_capture_heuristic(board_array, player_color)
+        +left_pieces_heuristic(board_array, player_color)
+        +checkmate_heuristic(self.board, player_color)
+        -controled_squares_heuristic(board_array, not player_color)
+        -pieces_to_capture_heuristic(board_array, not player_color)
+        -left_pieces_heuristic(board_array, not player_color)
+        -checkmate_heuristic(self.board, not player_color)
+      )
 
   #Daqui pra baixo é so gameplay
   def start_game(self):
