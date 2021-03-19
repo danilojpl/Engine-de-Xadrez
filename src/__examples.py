@@ -50,11 +50,14 @@ controled_squares_utility = controled_squares_heuristic(array, chess.WHITE)
 print(f"Pontos da heurística de casas controladas para o jogador BRANCO = {controled_squares_utility}")
 
 #loop de evento, passando a instancia da classe Game -- DANDO ERRO --
-while True:
-  game = Game()
-  computer = the_best_move(game)
-  print(f"Jogada do Computador é {computer}")
+# while True:
+#   game = Game()
+#   game.human_move()
+#   computer = the_best_move(game)
+#   game.make_move(computer)
+#   game.draw_board()
+#   print(f"Jogada do Computador é {computer}")
 
 # CALCULAR UTILIDADE DO TABULEIRO CONSIDERANDO AS PEÇAS DESPROTEGIDAS
-controled_squares_utility = pieces_to_capture_heuristic(array, chess.WHITE)
-print(f"Pontos da heurística de casas controladas para o jogador BRANCO = {controled_squares_utility}")
+# controled_squares_utility = pieces_to_capture_heuristic(array, chess.WHITE)
+# print(f"Pontos da heurística de casas controladas para o jogador BRANCO = {controled_squares_utility}")
