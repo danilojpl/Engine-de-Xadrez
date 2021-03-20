@@ -1,5 +1,6 @@
 import copy
 import chess
+import chess.svg
 import random
 
 from __config import NULL_PIECE
@@ -54,14 +55,14 @@ class Game:
     temp.board.push(move)
     temp.set_board_array()
     #print (temp.board)
-    print("\n")
     return temp
 
  
 
   def draw_board(self):
-    print('\n')
-    #print(self.board)
+    print("")
+    print(self.board)
+    print("")
   
   def calc_utility (self, player_color):
     board_array = self.board_array
@@ -189,7 +190,6 @@ class Game:
       return True
 
     else:
-      print("A partida continua!")
       return False
 
   def verify_check(self):
